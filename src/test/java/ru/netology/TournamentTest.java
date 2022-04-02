@@ -48,7 +48,7 @@ public class TournamentTest {
 
         int result = gm.round("Santa", "Grumpy");
 
-        assertEquals(0, result);
+        assertEquals(1, result);
     }
 
     @Test
@@ -67,18 +67,18 @@ public class TournamentTest {
         gm.register(p4);
 
         int result = gm.round("Psycho", "Maniac");
-        assertEquals(1, result);
+        assertEquals(0, result);
     }
 
     @Test
     public void shouldThrowFirstNotRegistered() {
         gm.register(p4);
-        assertThrows(NotRegisteredException.class, ()->gm.round("Psycho", "Maniac"));
+        assertThrows(NotRegisteredException.class, () -> gm.round("Psycho", "Maniac"));
     }
 
     @Test
     public void shouldThrowSecondNotRegistered() {
         gm.register(p3);
-        assertThrows(NotRegisteredException.class, ()->gm.round("Psycho", "Maniac"));
+        assertThrows(NotRegisteredException.class, () -> gm.round("Psycho", "Maniac"));
     }
 }
